@@ -22,8 +22,8 @@
 #define XHEXVIEWEX_H
 
 #include "xhexview.h"
-#include "dialogxstructchooser.h"
-#include "dialogxstruct.h"
+// #include "dialogxstructchooser.h"
+// #include "dialogxstruct.h"
 
 class XHexViewEx : public XHexView {
     Q_OBJECT

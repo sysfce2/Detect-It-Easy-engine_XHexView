@@ -41,15 +41,15 @@ void XHexViewEx::_structs()
     // DialogSetGenericWidget dialogSetGenericWidget(this);
     // dialogSetGenericWidget.setData(getDevice(), deviceState.nSelectionDeviceOffset, deviceState.nSelectionSize);
     // dialogSetGenericWidget.exec();
-    XStructWidget::OPTIONS options = {};
+    // XStructWidget::OPTIONS options = {};
 
-    DialogXStruct dialog(this);
-    dialog.setGlobal(getShortcuts(), getGlobalOptions());
-    dialog.setData(getDevice(), getXInfoDB(), options);  // TODO options
+    // DialogXStruct dialog(this);
+    // dialog.setGlobal(getShortcuts(), getGlobalOptions());
+    // dialog.setData(getDevice(), getXInfoDB(), options);  // TODO options
     // connect(this, SIGNAL(currentLocationChanged(quint64, qint32, qint64)), &dialog, SLOT(currentLocationChangedSlot(quint64, qint32, qint64)));
     // connect(this, SIGNAL(dataChanged(qint64, qint64)), &dialog, SLOT(dataChangedSlot(qint64, qint64)));
     // connect(&dialog, SIGNAL(dataChanged(qint64, qint64)), this, SLOT(_setEdited(qint64, qint64)));
     // connect(this, SIGNAL(closeWidget_Structs()), &dialog, SLOT(close()));
-    XOptions::_adjustStayOnTop(&dialog, true);
-    dialog.exec();
+    // XOptions::_adjustStayOnTop(&dialog, true);
+    // dialog.exec();
 }
