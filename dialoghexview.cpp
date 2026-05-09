@@ -36,7 +36,7 @@ void DialogHexView::setData(QIODevice *pDevice, const XHexViewWidget::OPTIONS &o
 {
     ui->widgetHex->setData(pDevice, options);
 
-    if (options.sTitle != "") {
+    if (!options.sTitle.isEmpty()) {
         setWindowTitle(options.sTitle);
     }
 }
@@ -63,7 +63,7 @@ void DialogHexView::setXInfoDB(XInfoDB *pXInfoDB)
 
 void DialogHexView::on_pushButtonClose_clicked()
 {
-    this->close();
+    close();
 }
 
 void DialogHexView::registerShortcuts(bool bState)
