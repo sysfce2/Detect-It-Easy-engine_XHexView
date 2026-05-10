@@ -235,7 +235,7 @@ XHexView::SHOWRECORD XHexView::_getShowRecordByViewPos(qint64 nOffset)
 {
     SHOWRECORD result = {};
 
-    qint32 nNumberOfRecords = m_listShowRecords.count();
+    qint32 nNumberOfRecords = m_listShowRecords.size();
 
     for (qint32 i = 0; i < nNumberOfRecords; i++) {
         if ((m_listShowRecords.at(i).nViewPos != -1) && (m_listShowRecords.at(i).nViewPos <= nOffset) &&
@@ -443,7 +443,7 @@ void XHexView::updateData()
 
                 QList<HIGHLIGHTREGION> listHighLightRegions = getHighlightRegion(&m_listHighlightsRegion, nDataBlockStartViewPos + i, XBinary::LT_OFFSET);
 
-                if (listHighLightRegions.count()) {
+                if (listHighLightRegions.size()) {
                     record.bIsHighlighted = true;
                     record.colBackground = listHighLightRegions.at(0).colBackground;
                     record.colBackgroundSelected = listHighLightRegions.at(0).colBackgroundSelected;
@@ -527,7 +527,7 @@ void XHexView::paintCell(QPainter *pPainter, qint32 nRow, qint32 nColumn, qint32
     //     g_pPainterText->drawRect(nLeft,nTop,nWidth,nHeight);
 
     if (nColumn == COLUMN_LOCATION) {
-        //        if (nRow < m_listLocationRecords.count()) {
+        //        if (nRow < m_listLocationRecords.size()) {
         //            QRect rectSymbol;
 
         //            rectSymbol.setLeft(nLeft + getCharWidth());
@@ -541,7 +541,7 @@ void XHexView::paintCell(QPainter *pPainter, qint32 nRow, qint32 nColumn, qint32
         //                                                                              //            pPainter->restore();
         //        }
     } else if ((nColumn == COLUMN_ELEMENTS) || (nColumn == COLUMN_SYMBOLS)) {
-        qint32 nNumberOfShowRecords = m_listShowRecords.count();
+        qint32 nNumberOfShowRecords = m_listShowRecords.size();
 
         QFont fontBold = pPainter->font();
         fontBold.setBold(true);
@@ -685,7 +685,7 @@ void XHexView::paintColumn(QPainter *pPainter, qint32 nColumn, qint32 nLeft, qin
             painterPixmap.setBackgroundMode(Qt::TransparentMode);
 
             if (nColumn == COLUMN_LOCATION) {
-                qint32 nNumberOfRows = m_listLocationRecords.count();
+                qint32 nNumberOfRows = m_listLocationRecords.size();
 
                 for (qint32 i = 0; i < nNumberOfRows; i++) {
                     QRectF rectSymbol;
@@ -700,7 +700,7 @@ void XHexView::paintColumn(QPainter *pPainter, qint32 nColumn, qint32 nLeft, qin
                 QFont fontBold = painterPixmap.font();
                 fontBold.setBold(true);
 
-                qint32 nNumberOfShowRecords = m_listShowRecords.count();
+                qint32 nNumberOfShowRecords = m_listShowRecords.size();
 
                 for (qint32 i = 0; i < nNumberOfShowRecords; i++) {
                     SHOWRECORD record = m_listShowRecords.at(i);
@@ -1097,7 +1097,7 @@ void XHexView::_cellDoubleClicked(qint32 nRow, qint32 nColumn)
         setColumnTitle(COLUMN_LOCATION, "");
         setLocationMode(XBinaryView::LOCMODE_THIS);
 
-        if (nRow < m_listLocationRecords.count()) {
+        if (nRow < m_listLocationRecords.size()) {
             m_nThisBase = m_listLocationRecords.at(nRow).nViewPos;
         }
 

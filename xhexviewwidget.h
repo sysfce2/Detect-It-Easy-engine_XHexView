@@ -50,22 +50,22 @@ public:
     explicit XHexViewWidget(QWidget *pParent = nullptr);
     ~XHexViewWidget();
 
-    void setGlobal(XShortcuts *pShortcuts, XOptions *pXOptions);
+    void setGlobal(XShortcuts *pShortcuts, XOptions *pXOptions) override;
     void setData(QIODevice *pDevice, const OPTIONS &options);
     void setDevice(QIODevice *pDevice, qint64 nStartOffset, qint64 nTotalSize);
     void setXInfoDB(XInfoDB *pXInfoDB);
     void reload();
     void cleanup();
-    virtual void setReadonly(bool bState);
+    void setReadonly(bool bState) override;
     void setReadonlyVisible(bool bState);
     // XADDR getStartLocation();
     void setSelection(qint64 nOffset, qint64 nSize);  // TODO remove use setLocation
-    virtual void setLocation(quint64 nLocation, qint32 nLocationType, qint64 nSize);
-    virtual void adjustView();
+    void setLocation(quint64 nLocation, qint32 nLocationType, qint64 nSize) override;
+    void adjustView() override;
     //    void blockSignals(bool bState);
     //    void addValue(QString sTitle, DATAINS datains, LIED lied);
     void setWidgetFocus();
-    virtual void reloadData(bool bSaveSelection);
+    void reloadData(bool bSaveSelection) override;
 
 private:
     void reloadFileType();
@@ -84,7 +84,7 @@ signals:
     void deviceSizeChanged(qint64 nOldSize, qint64 nNewSize);
 
 protected:
-    virtual void registerShortcuts(bool bState);
+    void registerShortcuts(bool bState) override;
 
 private:
     Ui::XHexViewWidget *ui;

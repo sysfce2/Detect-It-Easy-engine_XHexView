@@ -47,7 +47,7 @@ public:
     virtual QList<XShortcuts::MENUITEM> getMenuItems();
 
 private:
-    enum COLUMN {
+    enum COLUMN : qint32 {
         COLUMN_LOCATION = 0,
         COLUMN_ELEMENTS,
         COLUMN_SYMBOLS
@@ -75,7 +75,7 @@ private:
         //        bool bIsSelected;
     };
 
-    enum ELEMENT_MODE {
+    enum ELEMENT_MODE : qint32 {
         ELEMENT_MODE_HEX = 0,
         ELEMENT_MODE_BYTE,
         ELEMENT_MODE_WORD,
