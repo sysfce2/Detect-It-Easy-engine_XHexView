@@ -167,10 +167,10 @@ XHexView::MAPBANDSTATS XHexView::_calcBlockStats(const QByteArray &baData)
         }
     }
 
-    result.dEntropy = dEntropy;                       // 0..8
-    result.dGradient = (double)nSum / (dN * 255.0);   // 0..1
-    result.dZeros = (double)nCounts[0] / dN;          // 0..1
-    result.dText = (double)nTextCount / dN;           // 0..1
+    result.dEntropy = dEntropy;                      // 0..8
+    result.dGradient = (double)nSum / (dN * 255.0);  // 0..1
+    result.dZeros = (double)nCounts[0] / dN;         // 0..1
+    result.dText = (double)nTextCount / dN;          // 0..1
 
     return result;
 }
@@ -252,8 +252,8 @@ void XHexView::_scanMapStep()
         return;
     }
 
-    const qint64 N_SAMPLE_CAP = 0x10000;   // <=64 KiB read per band bounds work on huge files
-    const qint64 N_TIME_BUDGET_MS = 4;     // keep each tick short so the UI stays responsive
+    const qint64 N_SAMPLE_CAP = 0x10000;  // <=64 KiB read per band bounds work on huge files
+    const qint64 N_TIME_BUDGET_MS = 4;    // keep each tick short so the UI stays responsive
 
     qint64 nViewSize = m_nMapOverviewViewSize;
     qint32 nNumberOfBands = m_nMapScanBands;
@@ -579,7 +579,8 @@ void XHexView::updateData()
 
         qint32 nDataBlockSize = m_nBytesProLine * getLinesProPage();
 
-        nDataBlockSize = (qint32)qMin((qint64)nDataBlockSize, (qint64)(getBinaryView()->getViewSize() - nDataBlockStartViewPos));  // qint64 to avoid overflow on large files
+        nDataBlockSize =
+            (qint32)qMin((qint64)nDataBlockSize, (qint64)(getBinaryView()->getViewSize() - nDataBlockStartViewPos));  // qint64 to avoid overflow on large files
 
         m_listHighlightsRegion.clear();
         if (getXInfoDB()) {

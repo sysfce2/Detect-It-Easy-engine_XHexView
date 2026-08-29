@@ -132,8 +132,8 @@ private:
     MAPBANDSTATS _calcBlockStats(const QByteArray &baData);
     double _bandValue(const MAPBANDSTATS &stats) const;  // Selected metric, normalized to [0..1]
     QColor _metricColor(double dNorm) const;
-    void _mapHeaderClicked();          // Opens the map-metric chooser (click on the map header button)
-    QString _mapModeTitle() const;     // Display name of the current map metric
+    void _mapHeaderClicked();                                        // Opens the map-metric chooser (click on the map header button)
+    QString _mapModeTitle() const;                                   // Display name of the current map metric
     QString _mapTooltipText(const CURSOR_POSITION &cursorPosition);  // Offset + metrics under the cursor
     void _paintMapBookmarks(QPainter *pPainter, qint32 nLeft, qint32 nTop, qint32 nWidth, qint32 nHeight);  // Bookmark markers on the map
 
