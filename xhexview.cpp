@@ -88,7 +88,7 @@ XHexView::XHexView(QWidget *pParent) : XDeviceTableEditView(pParent)
     m_pCodePageMenu = m_xCodePageOptions.createCodePagesMenu(this, true);
     connect(&m_xCodePageOptions, SIGNAL(setCodePage(QString)), this, SLOT(_setCodePage(QString)));
 #endif
-    connect(this, &XDeviceTableView::locationModeChanged, this, [this](qint32) { adjustHeader(); });
+    connect(this, &XDeviceTableView::locationModeChanged, this, &XHexView::adjustHeader);
     setLocationMode(XBinaryView::LOCMODE_OFFSET);
     setMapEnable(true);
     setMapWidth(20);
